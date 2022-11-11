@@ -18,7 +18,7 @@ public class TestingListaReproduccion{
         String entrada;
         
         listaLigada<Integer> lista = new listaLigada<>();
-        int dato = 0;
+        int dato = 0,num;
         int opcion = 0;
         char respuesta;
         do{
@@ -38,7 +38,7 @@ public class TestingListaReproduccion{
                     entrada = bufer.readLine();
                     dato = Integer.parseInt(entrada);
                     lista.add(dato);
-                    System.out.println("Se ha agregado el daño a la lista");
+                    System.out.println("Se ha agregado los numeros a la lista");
                     System.out.println("¿Quieres agregar más datos?(s/n): ");
                     entrada = bufer.readLine();
                     respuesta = entrada.charAt(0);

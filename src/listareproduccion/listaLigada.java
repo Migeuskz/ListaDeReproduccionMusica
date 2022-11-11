@@ -21,15 +21,27 @@ public class listaLigada <T>{
         this.size = 0;
     }
     
-    //Metodo para agregar un Nodo al inicio de la Lista
+    /*public void addFirst(int dato){
+        Nodo nodo = new Nodo(dato);
+        this.head = nodo;
+        this.tail = nodo;
+        this.actual = nodo;
+        this.size++;
+    }*/
+    
     public void add(T dato){
         Nodo nuevoNodo = new Nodo(dato);
-        //Creando al Nodo
-        this.head = new Nodo(dato, head);
-        if(tail == null ){//la lista está vacía, creamos el primer nodo
-            tail=head;
-        }
+        this.size++;
+        this.tail = nuevoNodo;//se mueve el apuntador al último nodo
         
+        if(head == null ){//la lista está vacía, creamos el primer nodo
+            head = nuevoNodo;
+            actual = head;
+        }
+        else{
+            actual.setSiguiente(nuevoNodo);//actual.sig apunta al nuevoNodo (enlace entre nodos)
+            actual = nuevoNodo;//ahora actual es el nuevo Nodo
+        }
     }
     
     public void add(T dato,int posicion){
@@ -45,13 +57,29 @@ public class listaLigada <T>{
         actual = nuevoNodo;
         actual.setSiguiente(auxiliar);
     }
-    //metodo para mostrar los datos
-    public void printList(){
-        Nodo recorrer = head;
-        actual = head;
-        while(recorrer != null){
-            System.out.println("Dato= " + recorrer.getDato());
-            recorrer=recorrer.getSiguiente();
+    
+    //Metodo para eliminar un Nodo del inicio
+    public void borrarInicio(T dato){
+        Nodo inicio = new Nodo(dato);
+        Nodo fin = new Nodo(dato);
+        this.head = inicio;
+        this.tail = fin;
+        if(inicio==fin){
+            inicio=fin=null;
+        }else{
+            inicio=inicio.getSiguiente();
         }
     }
+    
+    public void printList(){
+        int posicion = 1;
+        actual = head;
+        while(actual != null){
+            T elemento =(T) actual.getDato();
+            System.out.println("Dato= " + elemento + " almacenado en nodo: " + posicion);
+            actual = actual.getSiguiente();
+            posicion++;
+        }
+    }
+    
 }
