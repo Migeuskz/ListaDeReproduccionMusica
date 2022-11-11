@@ -12,9 +12,15 @@ public class Nodo<T>{
     private T dato;//dato almacenado
     private Nodo siguiente;//apuntador al siguiente nodo -> al referirse a la clase, hacemos referencia a la pocisión 
     
+    //Constructor para insertar al final
     public Nodo(T d){
         this.dato = d;
         this.siguiente = null;
+    }
+    //constructor para insertar el inicio
+    public Nodo(T d, Nodo n){
+        this.dato = d;
+        this.siguiente=n;
     }
 
     public T getDato() {

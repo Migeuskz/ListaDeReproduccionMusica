@@ -21,27 +21,15 @@ public class listaLigada <T>{
         this.size = 0;
     }
     
-    /*public void addFirst(int dato){
-        Nodo nodo = new Nodo(dato);
-        this.head = nodo;
-        this.tail = nodo;
-        this.actual = nodo;
-        this.size++;
-    }*/
-    
+    //Metodo para agregar un Nodo al inicio de la Lista
     public void add(T dato){
         Nodo nuevoNodo = new Nodo(dato);
-        this.size++;
-        this.tail = nuevoNodo;//se mueve el apuntador al último nodo
+        //Creando al Nodo
+        this.head = new Nodo(dato, head);
+        if(tail == null ){//la lista está vacía, creamos el primer nodo
+            tail=head;
+        }
         
-        if(head == null ){//la lista está vacía, creamos el primer nodo
-            head = nuevoNodo;
-            actual = head;
-        }
-        else{
-            actual.setSiguiente(nuevoNodo);//actual.sig apunta al nuevoNodo (enlace entre nodos)
-            actual = nuevoNodo;//ahora actual es el nuevo Nodo
-        }
     }
     
     public void add(T dato,int posicion){
@@ -57,15 +45,13 @@ public class listaLigada <T>{
         actual = nuevoNodo;
         actual.setSiguiente(auxiliar);
     }
-    
+    //metodo para mostrar los datos
     public void printList(){
-        int posicion = 1;
+        Nodo recorrer = head;
         actual = head;
-        while(actual != null){
-            T elemento =(T) actual.getDato();
-            System.out.println("Dato= " + elemento + " almacenado en nodo: " + posicion);
-            actual = actual.getSiguiente();
-            posicion++;
+        while(recorrer != null){
+            System.out.println("Dato= " + recorrer.getDato());
+            recorrer=recorrer.getSiguiente();
         }
     }
 }
