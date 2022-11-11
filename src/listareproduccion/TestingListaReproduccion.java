@@ -19,55 +19,47 @@ public class TestingListaReproduccion{
         
         int dato;
         char respuesta;
-        listaLigada lista = new listaLigada();
         
-            for(;;){//ciclo infinito
-            System.out.println("Escribe un dato entero: ");
-            entrada = bufer.readLine();
-            dato = Integer.parseInt(entrada);
-            lista.add(dato);
-            System.out.println("Se ha agregado el daño a la lista");
-            System.out.println("¿Quieres agregar más datos?(s/n): ");
-            entrada = bufer.readLine();
-            respuesta = entrada.charAt(0);
-            if(respuesta == 'n' || respuesta == 'N')
-                break;
-            }
-            
-            System.out.println("=================================");
-            System.out.println("Contenido de la lista ligada: ");
-            lista.printList();
-            
-            /*System.out.println("=================================");
-            System.out.println("Inserción de un nuevo nodo");
-            System.out.println("Escribe el elemento a insertar: ");
-            entrada = bufer.readLine();
-            dato = Integer.parseInt(entrada);
-            System.out.println("Escriba la posición en donde quieres insertar: ");
-            entrada = bufer.readLine();
-            int p = Integer.parseInt(entrada);
-            lista.add(dato,p);
-            
-            System.out.println("=================================");
-            System.out.println("Contenido de la lista ligada: ");
-            lista.printList();
-            */
-            
-            //Otra lista ligada, ahora almacenada Strings
-            listaLigada<String>lista2 = new listaLigada<>();
-            System.out.println("=====Creando una lista de Strings=====");
+            listaLigada<String>lista = new listaLigada<>();
+            System.out.println("=====Creando una lista de reproduccion=====");
             for(;;){
-                System.out.println("Escriba dato String para agregar a la lista: ");
+                System.out.println("Escriba el nombre de la cancion: ");
                 entrada = bufer.readLine();
-                lista2.add(entrada);
+                lista.add(entrada);
                 System.out.println("¿Quieres insertar más datos? ");
                 entrada = bufer.readLine();
                 respuesta = entrada.charAt(0);
                 if(respuesta == 'n' || respuesta == 'N')
                     break;
             }
-            System.out.println("Contenido de la lista de Strings: ");
-            lista2.printList();
+            
+            System.out.println("=================================");    
+            System.out.println("¿Quieres insertar una nueva canción? ");
+            entrada = bufer.readLine();
+            respuesta = entrada.charAt(0);
+            if(respuesta == 'n' || respuesta == 'N'){
+             
+            System.out.println("=================================");
+            for(;;){
+            System.out.println("Inserción de un nuevo nodo");
+            System.out.println("Escribe la cancion que quieres agregar: ");
+            entrada = bufer.readLine();
+            dato = Integer.parseInt(entrada);
+            System.out.println("Escriba la posición en donde quieres poner tu canción: ");
+            entrada = bufer.readLine();
+            lista.add(entrada, dato);
+            System.out.println("¿Quieres insertar más datos? ");
+            entrada = bufer.readLine();
+            respuesta = entrada.charAt(0);
+            if(respuesta == 'n' || respuesta == 'N')
+                break;
+            }
+            }
+            System.out.println("=================================");
+            System.out.println("Contenido de tu lista de reproduccion: ");
+            lista.printList();
+            
+            
             
     }
      

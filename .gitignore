@@ -2,3 +2,5 @@
 .manifest.mf
 /test
 /nbproject
+/build/
+/dist/
