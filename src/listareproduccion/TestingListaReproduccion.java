@@ -17,7 +17,7 @@ public class TestingListaReproduccion{
         BufferedReader bufer =  new BufferedReader(new InputStreamReader(System.in));
         String entrada;
         
-        int dato;
+        int dato = 0;
         char respuesta;
         
             listaLigada<String>lista = new listaLigada<>();
@@ -44,9 +44,10 @@ public class TestingListaReproduccion{
             System.out.println("Inserción de un nuevo nodo");
             System.out.println("Escribe la cancion que quieres agregar: ");
             entrada = bufer.readLine();
-            dato = Integer.parseInt(entrada);
+            lista.add(entrada);
             System.out.println("Escriba la posición en donde quieres poner tu canción: ");
             entrada = bufer.readLine();
+            int p = Integer.parseInt(entrada);
             lista.add(entrada, dato);
             System.out.println("¿Quieres insertar más datos? ");
             entrada = bufer.readLine();
