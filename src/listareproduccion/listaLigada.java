@@ -9,16 +9,16 @@ package listareproduccion;
  * @author Mikey
  */
 public class listaLigada <T>{
-    private Nodo head;//Apuntador a la cabecera de la lista (primer nodo)
-    private Nodo tail;//Apuntador a la cola de la lista (último nodo)
-    private int size;//tamaño de la lista (número de nodos en la lista)
+    private Nodo inicio;//Apuntador a la cabecera de la lista (primer nodo)
+    private Nodo fin;//Apuntador a la cola de la lista (último nodo)
+    private int tam;//tamaño de la lista (número de nodos en la lista)
     private Nodo actual;//Apuntador al nodo sleccionado actualmente 
     
     public listaLigada(){
-        this.head = null;
+        this.inicio = null;
         this.actual = null;
-        this.tail = null;
-        this.size = 0;
+        this.fin = null;
+        this.tam = 0;
     }
     
     /*public void addFirst(int dato){
@@ -31,12 +31,12 @@ public class listaLigada <T>{
     
     public void add(T dato){
         Nodo nuevoNodo = new Nodo(dato);
-        this.size++;
-        this.tail = nuevoNodo;//se mueve el apuntador al último nodo
+        this.tam++;
+        this.fin = nuevoNodo;//se mueve el apuntador al último nodo
         
-        if(head == null ){//la lista está vacía, creamos el primer nodo
-            head = nuevoNodo;
-            actual = head;
+        if(inicio == null ){//la lista está vacía, creamos el primer nodo
+            inicio = nuevoNodo;
+            actual = inicio;
         }
         else{
             actual.setSiguiente(nuevoNodo);//actual.sig apunta al nuevoNodo (enlace entre nodos)
@@ -47,7 +47,7 @@ public class listaLigada <T>{
     public void add(T dato,int posicion){
         Nodo nuevoNodo = new Nodo(dato);
         int i = 1;
-        actual = head;
+        actual = inicio;
         while(i < posicion -1){
             actual = actual.getSiguiente();
             i++;
@@ -62,8 +62,8 @@ public class listaLigada <T>{
     public void borrarInicio(T dato){
         Nodo inicio = new Nodo(dato);
         Nodo fin = new Nodo(dato);
-        this.head = inicio;
-        this.tail = fin;
+        this.inicio = inicio;
+        this.fin = fin;
         if(inicio==fin){
             inicio=fin=null;
         }else{
@@ -73,7 +73,7 @@ public class listaLigada <T>{
     
     public void printList(){
         int posicion = 1;
-        actual = head;
+        actual = inicio;
         while(actual != null){
             T elemento =(T) actual.getDato();
             System.out.println("Dato= " + elemento + " almacenado en nodo: " + posicion);

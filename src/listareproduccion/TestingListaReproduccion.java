@@ -25,7 +25,10 @@ public class TestingListaReproduccion{
             System.out.println("Elige el la opción que deseas hacer :) ");
             System.out.println("1: Es para hacer una Lista de reproduccion Nueva: ");
             System.out.println("2: Mostrar tu lista final");
-            System.out.println("3: comming soon!");
+            System.out.println("3: Insertar mas elementos");
+            System.out.println("4: Eliminar el inicio!");
+            System.out.println("5: Eliminar un elemento >:(: ");
+            System.out.println("6: Buscar un elemento!");
             entrada = bufer.readLine();
             opcion = Integer.parseInt(entrada);
             switch(opcion){
@@ -49,18 +52,35 @@ public class TestingListaReproduccion{
                     lista.add(dato);
                     break;
                 case 2:
-                    lista.printList();
                     System.out.println("=================================");
                     System.out.println("Contenido de la lista ligada: ");
                     lista.printList();
                     break;
                 case 3:
+                    System.out.println("=================================");
+                    System.out.println("Inserción de un nuevo nodo");
+                    System.out.println("Escribe el elemento a insertar: ");
+                    entrada = bufer.readLine();
+                    dato = Integer.parseInt(entrada);
+                    System.out.println("Escriba la posición en donde quieres insertar: ");
+                    entrada = bufer.readLine();
+                    int p = Integer.parseInt(entrada);
+                    lista.add(dato,p);
+                    break;
+                case 4:
+                    System.out.println("=================================");
+                    System.out.println("Eliminando el inicio de la lista ligada: ");
+                    lista.borrarInicio(dato);
+                    break;
+                case 5:
+                    break;
+                case 6:
                     break;
                 default:
                     System.out.println("Lo siento pero esa opción no existe :(");
                     break;
             }
-        }while(opcion!=3);
+        }while(opcion!=5);
         
             
             
