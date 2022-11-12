@@ -80,6 +80,11 @@ public class TestingListaReproduccion{
                     System.out.println();
                     break;
                 case 5:
+                    System.out.println("=================================");
+                    System.out.println("Eliminando un elemento de la lista ligada: ");
+                    lista.borrarFinal();
+                    lista.printList();
+                    System.out.println();
                     break;
                 case 6:
                     break;

@@ -51,12 +51,28 @@ public class listaLigada <T>{
     }
     
     //Metodo para eliminar un Nodo del inicio
-    public int borrarInicio(){
-        int elemento = (int) inicio.getDato();
+    public int borrarInicio(){//efectivamente no requiero un parametro por que estoy eliminando un elemento
+        int elemento = (int) inicio.getDato();//casteo elemento para manipular inicio y poder borrarlo
+        if(inicio==fin){
+            inicio=fin=null;//si inicio apunta a fin que es apunta a null no hago nada
+        }else{
+            inicio=inicio.getSiguiente();//si tiene algo adelante de inicio, lo borro y el siguiente pasa a ser inicio
+        }
+        return elemento;//retorno elemento para manipular el dato a eliminar y sacarlo de ahí
+    }
+    
+    //Metodo para eliminar un Nodo final
+    public int borrarFinal(){
+        int elemento = (int) fin.getDato();
         if(inicio==fin){
             inicio=fin=null;
         }else{
-            inicio=inicio.getSiguiente();
+            Nodo temporal = inicio;
+            while(temporal.getSiguiente()!=fin){
+                temporal = temporal.getSiguiente();
+            }
+            fin=temporal;
+            fin = fin.getSiguiente();
         }
         return elemento;
     }
