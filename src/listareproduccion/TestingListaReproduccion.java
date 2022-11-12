@@ -18,7 +18,7 @@ public class TestingListaReproduccion{
         String entrada;
         
         listaLigada<Integer> lista = new listaLigada<>();
-        int dato = 0,num;
+        int dato;
         int opcion = 0;
         char respuesta;
         do{
@@ -31,10 +31,13 @@ public class TestingListaReproduccion{
             System.out.println("6: Buscar un elemento!");
             entrada = bufer.readLine();
             opcion = Integer.parseInt(entrada);
+            System.out.println();
+            System.out.println();
             switch(opcion){
                 case 1:
                     System.out.println("Ingresa el Numero de tu lista agregada: ");
                     entrada = bufer.readLine();
+                    dato = Integer.parseInt(entrada);
                     lista.add(dato);
                     for(;;){//ciclo infinito
                     System.out.println("Escribe un dato entero: ");
@@ -50,11 +53,13 @@ public class TestingListaReproduccion{
                     }
                     //Agregando al Nodo!
                     lista.add(dato);
+                    System.out.println();
                     break;
                 case 2:
                     System.out.println("=================================");
                     System.out.println("Contenido de la lista ligada: ");
                     lista.printList();
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("=================================");
@@ -66,11 +71,13 @@ public class TestingListaReproduccion{
                     entrada = bufer.readLine();
                     int p = Integer.parseInt(entrada);
                     lista.add(dato,p);
+                    System.out.println();
                     break;
                 case 4:
                     System.out.println("=================================");
                     System.out.println("Eliminando el inicio de la lista ligada: ");
-                    lista.borrarInicio(dato);
+                    lista.borrarInicio();
+                    System.out.println();
                     break;
                 case 5:
                     break;

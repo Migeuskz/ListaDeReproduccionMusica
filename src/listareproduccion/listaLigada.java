@@ -21,14 +21,6 @@ public class listaLigada <T>{
         this.tam = 0;
     }
     
-    /*public void addFirst(int dato){
-        Nodo nodo = new Nodo(dato);
-        this.head = nodo;
-        this.tail = nodo;
-        this.actual = nodo;
-        this.size++;
-    }*/
-    
     public void add(T dato){
         Nodo nuevoNodo = new Nodo(dato);
         this.tam++;
@@ -59,16 +51,14 @@ public class listaLigada <T>{
     }
     
     //Metodo para eliminar un Nodo del inicio
-    public void borrarInicio(T dato){
-        Nodo inicio = new Nodo(dato);
-        Nodo fin = new Nodo(dato);
-        this.inicio = inicio;
-        this.fin = fin;
+    public int borrarInicio(){
+        int elemento = (int) inicio.getDato();
         if(inicio==fin){
             inicio=fin=null;
         }else{
             inicio=inicio.getSiguiente();
         }
+        return elemento;
     }
     
     public void printList(){
